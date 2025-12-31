@@ -1,0 +1,123 @@
+/* Reset global */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  font-family: 'Roboto Mono', monospace;
+  color-scheme: dark;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex; /* La clé du centrage */
+  justify-content: center;
+  align-items: center;
+  
+  /* Fond dégradé radial sombre */
+  background: radial-gradient(circle at center, #1a1a2e 0%, #000000 100%);
+  color: white;
+  overflow: hidden;
+}
+
+.container {
+  text-align: center;
+  padding: 3rem;
+  /* Effet verre dépoli */
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+h2 {
+  color: #aaa;
+  font-size: 1.2rem;
+  letter-spacing: 6px;
+  margin-bottom: 2.5rem;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+/* --- LE COMPTEUR --- */
+.countdown {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 5.5rem;
+  font-weight: 700;
+  color: #00ff9f; /* Vert turquoise */
+  text-shadow: 0 0 20px rgba(0, 255, 159, 0.5), 0 0 40px rgba(0, 255, 159, 0.2);
+}
+
+.time-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 10px;
+  width: 130px; /* Largeur fixe pour stabilité */
+}
+
+.time-unit label {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 15px;
+  letter-spacing: 2px;
+}
+
+.separator {
+  margin-top: 10px;
+  color: #444;
+  animation: blink 1s ease-in-out infinite;
+}
+
+/* Les secondes en rose néon */
+.seconds {
+  color: #ff2a6d;
+  text-shadow: 0 0 20px rgba(255, 42, 109, 0.6), 0 0 40px rgba(255, 42, 109, 0.3);
+}
+
+.loading-text {
+  margin-top: 50px;
+  color: #555;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  animation: pulse 2s infinite;
+}
+
+/* --- ECRAN FINAL --- */
+.celebration {
+  animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.celebration h1 {
+  font-size: 8rem;
+  font-weight: 900;
+  background: linear-gradient(to right, #00ff9f, #ff2a6d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 30px rgba(0, 255, 159, 0.3));
+}
+
+.celebration p {
+  font-size: 1.5rem;
+  letter-spacing: 8px;
+  margin-top: 20px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+/* Animations */
+@keyframes blink { 0%, 100% { opacity: 0.2; } 50% { opacity: 1; } }
+@keyframes pulse { 0% { opacity: 0.4; } 50% { opacity: 0.8; } 100% { opacity: 0.4; } }
+@keyframes popIn { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; }}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .countdown { font-size: 2.8rem; }
+  .separator { font-size: 2.5rem; margin-top: 5px; }
+  .time-unit { width: auto; margin: 0 5px; }
+  h2 { font-size: 0.9rem; letter-spacing: 3px; }
+  .container { padding: 1.5rem; width: 90%; }
+  .celebration h1 { font-size: 4rem; }
+}
